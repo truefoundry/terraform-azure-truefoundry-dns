@@ -49,8 +49,8 @@ variable "tags" {
   default     = {}
 }
 
-variable "truefoundry_managed_identity_enabled" {
-  description = "Flag to enable TrueFoundry managed identity name"
+variable "truefoundry_managed_identity_name_override_enabled" {
+  description = "Flag to enable TrueFoundry managed identity name override"
   type        = bool
   default     = false
 }
