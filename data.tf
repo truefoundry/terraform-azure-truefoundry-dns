@@ -4,3 +4,8 @@ data "azurerm_dns_zone" "existing_zone" {
   name                = var.dns_zone_name
   resource_group_name = var.resource_group_name
 }
+
+data "azurerm_kubernetes_cluster" "aks" {
+  name                = var.cluster_name
+  resource_group_name = var.resource_group_name
+}

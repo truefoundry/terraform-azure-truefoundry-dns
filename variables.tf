@@ -1,13 +1,18 @@
 variable "use_existing_dns_zone" {
   description = "Flag to use existing DNS zone instead of creating a new one"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "dns_zone_name" {
   description = "DNS zone name (e.g., example.com)"
   type        = string
   default     = ""
+}
+
+variable "cluster_name" {
+  description = "Name of the AKS cluster"
+  type        = string
 }
 
 variable "resource_group_name" {
@@ -18,7 +23,6 @@ variable "resource_group_name" {
 variable "location" {
   description = "Azure region location"
   type        = string
-  default     = "eastus"
 }
 
 variable "managed_identity_name" {
@@ -39,13 +43,20 @@ variable "cert_manager_service_account" {
   default     = "cert-manager"
 }
 
-variable "oidc_issuer_url" {
-  description = "OIDC issuer URL for workload identity (from AKS cluster)"
-  type        = string
-}
-
 variable "tags" {
   description = "Tags to apply to all resources"
   type        = map(string)
   default     = {}
+}
+
+variable "truefoundry_managed_identity_enabled" {
+  description = "Flag to enable TrueFoundry managed identity name"
+  type        = bool
+  default     = false
+}
+
+variable "truefoundry_managed_identity_override_name" {
+  description = "Override name for TrueFoundry managed identity"
+  type        = string
+  default     = ""
 }

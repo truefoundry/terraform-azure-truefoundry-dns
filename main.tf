@@ -8,7 +8,7 @@ resource "azurerm_dns_zone" "truefoundry_zone" {
 
 # Create User Assigned Managed Identity for cert-manager
 resource "azurerm_user_assigned_identity" "cert_manager_identity" {
-  name                = var.managed_identity_name
+  name                = var.truefoundry_managed_identity_enabled ? var.truefoundry_managed_identity_override_name : "${var.cluster_name}-${var.managed_identity_name}"
   resource_group_name = var.resource_group_name
   location            = var.location
   tags                = var.tags
@@ -26,6 +26,6 @@ resource "azurerm_federated_identity_credential" "cert_manager_federated_identit
   resource_group_name = var.resource_group_name
   parent_id           = azurerm_user_assigned_identity.cert_manager_identity.id
   audience            = ["api://AzureADTokenExchange"]
-  issuer              = var.oidc_issuer_url
+  issuer              = data.azurerm_kubernetes_cluster.aks.oidc_issuer_url
   subject             = "system:serviceaccount:${var.cert_manager_namespace}:${var.cert_manager_service_account}"
 }
