@@ -1,5 +1,5 @@
 # Create new DNS zone (when use_existing_dns_zone = false)
-resource "azurerm_dns_zone" "truefoundry_zone" {
+resource "azurerm_dns_zone" "truefoundry_dns_zone" {
   count               = var.use_existing_dns_zone ? 0 : 1
   name                = var.dns_zone_name
   resource_group_name = var.resource_group_name
@@ -15,7 +15,7 @@ resource "azurerm_user_assigned_identity" "cert_manager_identity" {
 }
 
 resource "azurerm_role_assignment" "dns_zone_contributor" {
-  scope                = var.use_existing_dns_zone ? data.azurerm_dns_zone.existing_zone[0].id : azurerm_dns_zone.truefoundry_zone[0].id
+  scope                = var.use_existing_dns_zone ? data.azurerm_dns_zone.existing_zone[0].id : azurerm_dns_zone.truefoundry_dns_zone[0].id
   role_definition_name = "DNS Zone Contributor"
   principal_id         = azurerm_user_assigned_identity.cert_manager_identity.principal_id
 }

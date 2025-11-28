@@ -28,7 +28,7 @@ variable "location" {
 variable "managed_identity_name" {
   description = "Name for the managed identity"
   type        = string
-  default     = "cert-manager-dns-identity"
+  default     = ""
 }
 
 variable "cert_manager_namespace" {
