@@ -22,7 +22,7 @@ resource "azurerm_role_assignment" "truefoundry_dns_zone_contributor" {
 
 # Create Federated Identity Credential for Workload Identity
 resource "azurerm_federated_identity_credential" "truefoundry_cert_manager_federated_identity" {
-  name                = "cert-manager-federated-identity"
+  name                = var.truefoundry_cert_manager_federated_identity_name_override_enabled ? var.truefoundry_cert_manager_federated_identity_override_name : "${var.cluster_name}-cert-manager-federated-identity"
   resource_group_name = var.resource_group_name
   parent_id           = azurerm_user_assigned_identity.truefoundry_cert_manager_identity.id
   audience            = ["api://AzureADTokenExchange"]

@@ -60,3 +60,21 @@ variable "truefoundry_managed_identity_override_name" {
   type        = string
   default     = ""
 }
+
+variable "truefoundry_cert_manager_federated_identity_name_override_enabled" {
+  description = "Flag to enable TrueFoundry cert-manager federated identity name override"
+  type        = bool
+  default     = false
+}
+
+variable "truefoundry_cert_manager_federated_identity_override_name" {
+  description = "Override name for TrueFoundry cert-manager federated identity"
+  type        = string
+  default     = ""
+}
+
+variable "existing_zone_resource_group_name" {
+  description = "Resource group name of the existing DNS zone (required if use_existing_dns_zone is true)"
+  type        = string
+  default     = ""
+}
