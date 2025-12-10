@@ -5,7 +5,7 @@ output "dns_zone_nameservers" {
 
 output "resource_group_name" {
   description = "Resource group name of the DNS zone"
-  value = var.existing_zone_resource_group_name != "" ? var.existing_zone_resource_group_name : var.resource_group_name
+  value       = var.existing_zone_resource_group_name != "" ? var.existing_zone_resource_group_name : var.resource_group_name
 }
 
 output "subscription_id" {
