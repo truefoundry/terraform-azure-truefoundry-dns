@@ -8,7 +8,7 @@ resource "azurerm_dns_zone" "truefoundry_dns_zone" {
 
 # Create User Assigned Managed Identity for cert-manager
 resource "azurerm_user_assigned_identity" "truefoundry_cert_manager_identity" {
-  name                = var.truefoundry_managed_identity_name_override_enabled ? var.truefoundry_managed_identity_override_name : "${var.cluster_name}-${var.managed_identity_name}"
+  name                = var.truefoundry_managed_identity_name_override_enabled ? var.truefoundry_managed_identity_override_name : "${var.cluster_name}-cm-identity"
   resource_group_name = var.resource_group_name
   location            = var.location
   tags                = var.tags
