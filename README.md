@@ -39,7 +39,6 @@ No modules.
 | <a name="input_dns_zone_name"></a> [dns\_zone\_name](#input\_dns\_zone\_name) | DNS zone name (e.g., example.com) | `string` | `""` | no |
 | <a name="input_existing_zone_resource_group_name"></a> [existing\_zone\_resource\_group\_name](#input\_existing\_zone\_resource\_group\_name) | Resource group name of the existing DNS zone (required if use\_existing\_dns\_zone is true) | `string` | `""` | no |
 | <a name="input_location"></a> [location](#input\_location) | Azure region location | `string` | n/a | yes |
-| <a name="input_managed_identity_name"></a> [managed\_identity\_name](#input\_managed\_identity\_name) | Name for the managed identity | `string` | `""` | no |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Azure resource group name | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to all resources | `map(string)` | `{}` | no |
 | <a name="input_truefoundry_cert_manager_federated_identity_name_override_enabled"></a> [truefoundry\_cert\_manager\_federated\_identity\_name\_override\_enabled](#input\_truefoundry\_cert\_manager\_federated\_identity\_name\_override\_enabled) | Flag to enable TrueFoundry cert-manager federated identity name override | `bool` | `false` | no |
