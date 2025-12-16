@@ -25,12 +25,6 @@ variable "location" {
   type        = string
 }
 
-variable "managed_identity_name" {
-  description = "Name for the managed identity"
-  type        = string
-  default     = ""
-}
-
 variable "cert_manager_namespace" {
   description = "Kubernetes namespace where cert-manager is installed"
   type        = string
